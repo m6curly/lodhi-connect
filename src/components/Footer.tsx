@@ -1,0 +1,1 @@
+export function Footer(){return <footer className="border-t border-[#e5e0d5] mt-20"><div className="container py-10 flex flex-col md:flex-row justify-between gap-4 text-sm muted"><div><b className="text-[#10231f]">Lodhi Connect</b><div>C2 & D1 Block Community Portal</div></div><div>Built for transparent, trackable RWA service.</div></div></footer>}

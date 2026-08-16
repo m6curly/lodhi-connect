@@ -1,0 +1,2 @@
+import {STATUS_LABELS} from '@/lib/config';
+export function StatusBadge({status}:{status:string}){const tone=status==='resolved'||status==='closed'?'bg-emerald-50 text-emerald-700':status==='in_progress'||status==='assigned'?'bg-amber-50 text-amber-700':'bg-slate-100 text-slate-700';return <span className={`inline-flex rounded-full px-3 py-1 text-xs font-bold ${tone}`}>{STATUS_LABELS[status]??status}</span>}

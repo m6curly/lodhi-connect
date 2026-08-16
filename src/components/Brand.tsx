@@ -1,16 +1,12 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 export function Brand() {
   return (
     <Link href="/" className="flex items-center gap-3">
-      <Image
+      <img
         src="/logo.JPG"
         alt="Lodhi Connect"
-        width={48}
-        height={48}
-        className="h-12 w-12 rounded-full object-cover"
-        priority
+        className="h-10 w-10 rounded-full object-cover"
       />
 
       <div>

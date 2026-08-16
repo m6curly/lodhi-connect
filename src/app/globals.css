@@ -217,3 +217,30 @@ a:focus-visible{
   outline:3px solid rgba(177,138,69,.35);
   outline-offset:2px;
 }
+
+/* Public Dashboard CTA */
+a[href="#dashboard"]{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:11px 18px;
+  border-radius:12px;
+  background:var(--green);
+  color:#fff !important;
+  font-weight:700;
+  border:1px solid var(--green);
+  box-shadow:0 2px 6px rgba(16,35,31,.08);
+  transition:transform .2s,box-shadow .2s,background .2s;
+}
+
+a[href="#dashboard"]:hover{
+  background:#0e3028;
+  color:#fff !important;
+  transform:translateY(-1px);
+  box-shadow:0 5px 14px rgba(16,35,31,.12);
+}
+
+a[href="#dashboard"]:active{
+  transform:scale(.98);
+}

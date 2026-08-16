@@ -5,7 +5,7 @@ export function Brand() {
   return (
     <Link href="/" className="flex items-center gap-3">
       <Image
-        src="/logo.jpg"
+        src="/logo.JPG"
         alt="Lodhi Connect"
         width={48}
         height={48}

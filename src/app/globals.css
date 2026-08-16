@@ -1,246 +1,390 @@
 @import "tailwindcss";
 
-:root{
-  --ink:#10231f;
-  --muted:#66736e;
-  --cream:#f7f4ec;
-  --card:#fffdf8;
-  --line:#e5e0d5;
-  --green:#123d32;
-  --gold:#b18a45;
+:root {
+  --ink: #10231f;
+  --muted: #66736e;
+  --cream: #f7f4ec;
+  --card: #fffdf8;
+  --line: #e5e0d5;
+  --green: #123d32;
+  --gold: #b18a45;
 }
 
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-  margin:0;
-  background:var(--cream);
-  color:var(--ink);
-  font-family:Arial,Helvetica,sans-serif;
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 button,
 input,
 select,
-textarea{
-  font:inherit;
+textarea {
+  font: inherit;
 }
 
-button{
-  cursor:pointer;
+button {
+  cursor: pointer;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.container{
-  width:min(1180px,calc(100% - 32px));
-  margin:auto;
+/* =========================
+   LAYOUT
+========================= */
+
+.container {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
 }
 
-.serif{
-  font-family:Georgia,'Times New Roman',serif;
+.serif {
+  font-family: Georgia, "Times New Roman", serif;
 }
 
-.glass{
-  background:rgba(255,253,248,.92);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(229,224,213,.85);
+/* =========================
+   HEADER / GLASS
+========================= */
+
+.glass {
+  background: rgba(255, 253, 248, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(229, 224, 213, 0.85);
 }
 
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:22px;
-  box-shadow:0 12px 40px rgba(16,35,31,.06);
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 12px 40px rgba(16, 35, 31, 0.06);
 }
 
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  min-height:44px;
-  border-radius:12px;
-  padding:11px 16px;
-  font-weight:700;
-  border:1px solid transparent;
-  transition:transform .2s,box-shadow .2s,background .2s;
-  cursor:pointer;
-  -webkit-tap-highlight-color:rgba(18,61,50,.12);
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 44px;
+  padding: 11px 16px;
+
+  border-radius: 12px;
+  border: 1px solid transparent;
+
+  font-weight: 700;
+  line-height: 1.2;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+  -webkit-tap-highlight-color: rgba(18, 61, 50, 0.12);
 }
 
-.btn:hover{
-  transform:translateY(-1px);
-  box-shadow:0 5px 14px rgba(16,35,31,.12);
+.btn:hover {
+  transform: translateY(-1px);
 }
 
-.btn:active{
-  transform:scale(.98);
+.btn:active {
+  transform: scale(0.98);
 }
 
-.btn-primary{
-  background:var(--green);
-  color:white;
-  box-shadow:0 2px 6px rgba(16,35,31,.08);
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.btn-primary:hover{
-  background:#0e3028;
+/* Primary */
+
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+  box-shadow: 0 2px 6px rgba(16, 35, 31, 0.08);
 }
 
-.btn-gold{
-  background:var(--gold);
-  color:white;
+.btn-primary:hover {
+  background: #0e3028;
+  box-shadow: 0 5px 14px rgba(16, 35, 31, 0.12);
 }
 
-.btn-light{
-  background:white;
-  border-color:var(--line);
-  color:var(--ink);
-  box-shadow:0 2px 6px rgba(16,35,31,.06);
+/* Gold */
+
+.btn-gold {
+  background: var(--gold);
+  color: #fff;
+  border-color: var(--gold);
 }
 
-.btn-action{
-  min-height:44px;
-  cursor:pointer;
-  box-shadow:0 2px 6px rgba(16,35,31,.08);
+/* Light */
+
+.btn-light {
+  background: #fff;
+  color: var(--ink);
+  border-color: var(--line);
+  box-shadow: 0 2px 6px rgba(16, 35, 31, 0.06);
 }
 
-.btn-action:hover{
-  box-shadow:0 5px 14px rgba(16,35,31,.12);
+.btn-light:hover {
+  background: #f8f6f0;
+  border-color: #d5cfc2;
+  box-shadow: 0 5px 14px rgba(16, 35, 31, 0.1);
 }
 
-.btn-action:active{
-  transform:scale(.98);
+/* Clearly clickable action */
+
+.btn-action {
+  min-height: 44px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(18, 61, 50, 0.12);
 }
 
-.input{
-  width:100%;
-  border:1px solid var(--line);
-  background:#fffefb;
-  border-radius:12px;
-  padding:12px 14px;
-  outline:none;
+/* =========================
+   FORM ELEMENTS
+========================= */
+
+.input {
+  width: 100%;
+  min-height: 44px;
+
+  border: 1px solid var(--line);
+  background: #fffefb;
+  border-radius: 12px;
+
+  padding: 12px 14px;
+
+  outline: none;
+  color: var(--ink);
 }
 
-.input:focus{
-  border-color:#8d9d96;
-  box-shadow:0 0 0 3px rgba(141,157,150,.14);
+.input:focus {
+  border-color: #8d9d96;
+  box-shadow: 0 0 0 3px rgba(141, 157, 150, 0.14);
 }
 
-.label{
-  display:block;
-  font-size:13px;
-  font-weight:800;
-  margin-bottom:7px;
-  color:#44514d;
+.label {
+  display: block;
+  margin-bottom: 7px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  color: #44514d;
 }
 
-.muted{
-  color:var(--muted);
+.muted {
+  color: var(--muted);
 }
 
-.kicker{
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-size:11px;
-  font-weight:800;
-  color:var(--gold);
+.kicker {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  color: var(--gold);
 }
 
-/* Clearly clickable complaint cards */
+/* =========================
+   COMPLAINT CARDS
+========================= */
 
-.complaint-link{
-  display:flex;
-  cursor:pointer;
-  transition:transform .2s,box-shadow .2s,border-color .2s;
-  -webkit-tap-highlight-color:rgba(18,61,50,.12);
+.complaint-link {
+  display: flex;
+  width: 100%;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  -webkit-tap-highlight-color: rgba(18, 61, 50, 0.12);
 }
 
-.complaint-link:hover{
-  transform:translateY(-2px);
-  border-color:#b8b0a0;
-  box-shadow:0 14px 35px rgba(16,35,31,.10);
+.complaint-link:hover {
+  transform: translateY(-2px);
+  border-color: #b8b0a0;
+  box-shadow: 0 14px 35px rgba(16, 35, 31, 0.1);
 }
 
-.complaint-link:active{
-  transform:scale(.99);
+.complaint-link:active {
+  transform: scale(0.99);
 }
 
-.click-hint{
-  display:inline-flex;
-  width:fit-content;
-  padding:5px 9px;
-  border-radius:8px;
-  background:#f0ede4;
-  color:var(--green);
-  font-size:11px;
-  font-weight:800;
+.click-hint {
+  display: inline-flex;
+  width: fit-content;
+
+  padding: 5px 9px;
+
+  border-radius: 8px;
+
+  background: #f0ede4;
+  color: var(--green);
+
+  font-size: 11px;
+  font-weight: 800;
 }
 
-/* Mobile navigation */
+/* =========================
+   MOBILE NAVIGATION
+========================= */
 
-.mobile-nav-link{
-  display:block;
-  padding:13px 14px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  background:white;
-  font-weight:700;
-  cursor:pointer;
-  -webkit-tap-highlight-color:rgba(18,61,50,.12);
+.mobile-nav-link {
+  display: block;
+
+  padding: 13px 14px;
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+
+  background: #fff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: rgba(18, 61, 50, 0.12);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.mobile-nav-link:active{
-  transform:scale(.98);
-  background:#f3f0e7;
+.mobile-nav-link:hover {
+  border-color: #d5cfc2;
+  background: #faf8f3;
 }
 
-/* Make every button/link obviously interactive */
-
-button,
-a{
-  -webkit-tap-highlight-color:rgba(18,61,50,.12);
+.mobile-nav-link:active {
+  transform: scale(0.98);
+  background: #f3f0e7;
 }
+
+/* =========================
+   FOCUS / ACCESSIBILITY
+========================= */
 
 button:focus-visible,
-a:focus-visible{
-  outline:3px solid rgba(177,138,69,.35);
-  outline-offset:2px;
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(177, 138, 69, 0.35);
+  outline-offset: 2px;
 }
 
-/* Public Dashboard CTA */
-a[href="#dashboard"]{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:44px;
-  padding:11px 18px;
-  border-radius:12px;
-  background:var(--green);
-  color:#fff !important;
-  font-weight:700;
-  border:1px solid var(--green);
-  box-shadow:0 2px 6px rgba(16,35,31,.08);
-  transition:transform .2s,box-shadow .2s,background .2s;
+/* =========================
+   PUBLIC DASHBOARD BUTTON
+   Use .dashboard-cta in JSX
+========================= */
+
+.dashboard-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 44px;
+  padding: 11px 18px;
+
+  border-radius: 12px;
+
+  background: var(--green);
+  color: #fff;
+
+  font-weight: 700;
+
+  border: 1px solid var(--green);
+
+  box-shadow: 0 2px 6px rgba(16, 35, 31, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
-a[href="#dashboard"]:hover{
-  background:#0e3028;
-  color:#fff !important;
-  transform:translateY(-1px);
-  box-shadow:0 5px 14px rgba(16,35,31,.12);
+.dashboard-cta:hover {
+  background: #0e3028;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(16, 35, 31, 0.12);
 }
 
-a[href="#dashboard"]:active{
-  transform:scale(.98);
+.dashboard-cta:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .card {
+    border-radius: 18px;
+  }
+
+  .btn {
+    min-height: 44px;
+    padding: 11px 14px;
+  }
+
+  .complaint-link {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .click-hint {
+    margin-top: 10px;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+  .container {
+    width: calc(100% - 20px);
+  }
+
+  .btn {
+    padding-inline: 12px;
+  }
 }
